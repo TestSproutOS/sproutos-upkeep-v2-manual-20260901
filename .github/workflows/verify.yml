@@ -1,0 +1,15 @@
+name: Verify upstream sync
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Verify synchronized fixture
+        run: test -f README.md
